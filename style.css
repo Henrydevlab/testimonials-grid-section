@@ -1,0 +1,128 @@
+/* --- Variables & Core Setup --- */
+:root {
+  --purple: hsl(263, 55%, 52%);
+  --grey-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --grey-100: hsl(214, 17%, 92%); /* Background */
+  --grey-200: hsl(0, 0%, 81%);
+  --text-dark: hsl(219, 29%, 14%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 13px;
+  background-color: var(--grey-100);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4.5rem 1.5rem;
+}
+
+/* --- Grid Container --- */
+.testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1110px;
+  width: 100%;
+}
+
+/* --- Card Base --- */
+.card {
+  padding: 1.625rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 2.5rem 3.75rem 5rem -2.5rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Header */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.125rem;
+}
+
+.card__avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.card__name { font-size: 0.8125rem; font-weight: 500; }
+.card__status { font-size: 0.6875rem; opacity: 0.5; }
+
+/* Content Typography */
+.card__lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.card__quote {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  opacity: 0.7;
+  z-index: 1;
+  position: relative;
+}
+
+/* --- Color Modifiers --- */
+.card--purple { background-color: var(--purple); color: var(--white); }
+.card--grey-blue { background-color: var(--grey-blue); color: var(--white); }
+.card--dark-blue { background-color: var(--dark-blue); color: var(--white); }
+.card--white { background-color: var(--white); color: var(--text-dark); }
+
+.card--white .card__avatar { border-color: var(--grey-100); }
+.card--white .card__status { color: var(--text-dark); }
+
+/* --- Special Assets (The Quotation Image) --- */
+.card--quotation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 15%;
+  width: 104px;
+  height: 102px;
+  background-image: url('./images/bg-pattern-quotation.svg');
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* --- Responsive Layout (Desktop) --- */
+@media (min-width: 1100px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(4, 1fr);
+    /* Define grid areas for exact placement */
+    grid-template-areas: 
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
+
+  /* Assigning areas to match the design */
+  .card:nth-child(1) { grid-area: daniel; }
+  .card:nth-child(2) { grid-area: jonathan; }
+  .card:nth-child(3) { grid-area: jeanette; }
+  .card:nth-child(4) { grid-area: patrick; }
+  .card:nth-child(5) { grid-area: kira; }
+  
+  body { padding: 0; } /* Center on desktop without extra top padding */
+}
+
+/* --- Footer --- */
+.attribution { font-size: 0.6875rem; text-align: center; margin-top: 1.5rem;}
+.attribution a { color: hsl(228, 45%, 44%); }
+
