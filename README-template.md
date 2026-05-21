@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/Henrydevlab/testimonials-grid-section](https://github.com/Henrydevlab/testimonials-grid-section)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://henrydevlab.github.io/testimonials-grid-section/](https://henrydevlab.github.io/testimonials-grid-section/)
 
 ## My process
 
